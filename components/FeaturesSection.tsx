@@ -1,5 +1,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {featuresData} from "@/data/landing"; // Importing features data
+import { featuresData } from "@/data/landing"; // Importing features data
+
+// Define the Feature type
+interface Feature {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}
 
 const FeaturesSection: React.FC = () => {
   return (
@@ -12,7 +19,7 @@ const FeaturesSection: React.FC = () => {
 
         {/* Features Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
-          {featuresData.map((feature:any, index:any) => (
+          {featuresData.map((feature: Feature, index: number) => (
             <Card key={index} className="bg-white shadow-md rounded-lg hover:shadow-lg transition duration-300">
               <CardHeader className="flex items-center space-x-4">
                 {feature.icon}
